@@ -1,0 +1,8 @@
+{
+  "tspegjs": {
+    "customHeader": [
+      "import * as internal from './internal'"
+    ]
+  }
+}
+
