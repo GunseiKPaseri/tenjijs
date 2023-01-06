@@ -1,6 +1,6 @@
 "use strict";
 exports.__esModule = true;
-exports.convertGS8 = void 0;
+exports.reverseGS8 = exports.convertGS8 = void 0;
 var GS8ConvertTable = {
     "\u2841": "A",
     "\u2843": "B",
@@ -96,3 +96,7 @@ var convertGS8 = function (x) {
     return x.split("").map(function (a) { var _a; return (_a = GS8ConvertTable[a]) !== null && _a !== void 0 ? _a : a; }).join("");
 };
 exports.convertGS8 = convertGS8;
+var reverseGS8 = function (x) {
+    return x.split("").map(function (a) { var _a; return (_a = GS8ReverseTable[a]) !== null && _a !== void 0 ? _a : a; }).join("");
+};
+exports.reverseGS8 = reverseGS8;

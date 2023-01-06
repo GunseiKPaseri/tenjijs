@@ -89,5 +89,10 @@ const GS8ConvertTable:Record<string, string | undefined> = {
 const GS8ReverseTable = Object.fromEntries(Object.entries(GS8ConvertTable).map(([a,b])=>[b,a]))
 
 export const convertGS8 = (x: string) => {
-  return x.split("").map(a => GS8ConvertTable[a] ?? a).join("")
-} 
+  return x.split("").map(a => GS8ConvertTable[a] ?? a).join("");
+}
+
+export const reverseGS8 = (x: string) => {
+  return x.split("").map(a => GS8ReverseTable[a] ?? a).join("");
+}
+
