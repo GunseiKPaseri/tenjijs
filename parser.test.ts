@@ -9,8 +9,8 @@ describe("Literal", () => {
   });
   describe("Boolean Literal", () => {
     it("boolean", () => {
-      expect(genCode("⠞")).toBe("true;");
-      expect(genCode("⠋")).toBe("false;");
+      expect(genCode("⡞")).toBe("true;");
+      expect(genCode("⡋")).toBe("false;");
     });
   });
   describe("Numeric Literal", () => {
@@ -67,15 +67,15 @@ describe("Expression", () => {
     expect(genCode("⠡⠣⠩⢔⣶⠡⠣⠲⠹")).toBe("123 <= 12.4;")
     expect(genCode("⠡⠣⠩⡢⠡⠣⠲⠹")).toBe("123 > 12.4;")
     expect(genCode("⠡⠣⠩⡢⣶⠡⠣⠲⠹")).toBe("123 >= 12.4;")
-    expect(genCode("⠞⠯⠞")).toBe("true & true;")
-    expect(genCode("⠞⢳⠞")).toBe("true | true;")
-    expect(genCode("⠞⡐⠞")).toBe("true ^ true;")
-    expect(genCode("⠞⠯⠯⠞")).toBe("true && true;")
-    expect(genCode("⠞⢳⢳⠞")).toBe("true || true;")
+    expect(genCode("⡞⠯⡞")).toBe("true & true;")
+    expect(genCode("⡞⢳⡞")).toBe("true | true;")
+    expect(genCode("⡞⡐⡞")).toBe("true ^ true;")
+    expect(genCode("⡞⠯⠯⡞")).toBe("true && true;")
+    expect(genCode("⡞⢳⢳⡞")).toBe("true || true;")
     expect(genCode("⠡⠣⠩⢜⢆⠹⠱⠫⠻⡒⠳⠪⠬⡘")).toBe("123 * (4567 + 890);")
    });
   it("ConditionalExpression", () => {
-    expect(genCode("⠞⠶⠡⠣⠩⠒⠹⠱⠫")).toBe("true ? 123 : 456;")
+    expect(genCode("⡞⠶⠡⠣⠩⠒⠹⠱⠫")).toBe("true ? 123 : 456;")
   });
   it("CallExpression", () => {
     expect(genCode("⡄⠓⠕⠛⠑⡀⢆⡄⠋⠥⠛⠁⡀⠂⡄⠏⠊⠽⠕⡀⡘")).toBe("b13151b11(b0b251b01, b0f0a3d15);");
@@ -93,14 +93,14 @@ describe("Statement", () => {
   });
   describe("IfStatement", () => {
     it("if", () => {
-      expect(genCode("⠊⢆⠞⡘⣷⠋⣾")).toBe("if (true) {\n    false;\n}")
-      expect(genCode("⠊⢆⠞⡘⣷⠋⣾⠑⣷⠋⣾")).toBe("if (true) {\n    false;\n} else {\n    false;\n}")
-      expect(genCode("⠊⢆⠞⡘⣷⠋⣾⠑⠊⢆⠞⡘⣷⠋⣾")).toBe("if (true) {\n    false;\n} else if (true) {\n    false;\n}")
+      expect(genCode("⠊⢆⡞⡘⣷⡋⣾")).toBe("if (true) {\n    false;\n}")
+      expect(genCode("⠊⢆⡞⡘⣷⡋⣾⠑⣷⡋⣾")).toBe("if (true) {\n    false;\n} else {\n    false;\n}")
+      expect(genCode("⠊⢆⡞⡘⣷⡋⣾⠑⠊⢆⡞⡘⣷⡋⣾")).toBe("if (true) {\n    false;\n} else if (true) {\n    false;\n}")
     });
   });
   describe("IterationStatement", () => {
     it("while", () => {
-      expect(genCode("⠺⢆⠞⡘⣷⠋⣾")).toBe("while (true) {\n    false;\n}")
+      expect(genCode("⠺⢆⡞⡘⣷⡋⣾")).toBe("while (true) {\n    false;\n}")
     });
     it("continue", () => {
       expect(genCode("⠗⠑")).toBe("continue;")
@@ -111,20 +111,20 @@ describe("Statement", () => {
   });
   describe("Function", () => {
     it("function", () => {
-      expect(genCode("⠉⡄⠓⠕⠛⠑⡀⣶⠋⠝⢆⡘⣷⠋⣾")).toBe("const b13151b11 = function () {\n    false;\n};")
-      expect(genCode("⠋⠝⡄⠓⠕⠛⠑⡀⢆⡄⠋⠥⠛⠁⡀⠂⡄⠏⠊⠽⠕⡀⡘⣷⠋⣾")).toBe("function b13151b11(b0b251b01, b0f0a3d15) {\n    false;\n}")
+      expect(genCode("⠉⡄⠓⠕⠛⠑⡀⣶⠋⠝⢆⡘⣷⡋⣾")).toBe("const b13151b11 = function () {\n    false;\n};")
+      expect(genCode("⠋⠝⡄⠓⠕⠛⠑⡀⢆⡄⠋⠥⠛⠁⡀⠂⡄⠏⠊⠽⠕⡀⡘⣷⡋⣾")).toBe("function b13151b11(b0b251b01, b0f0a3d15) {\n    false;\n}")
     });
   });
   describe("Block", () => {
     it("Block", () => {
-      expect(genCode("⠋⠆⠋")).toBe("false;\nfalse;");
-      expect(genCode("⣷⠋⠆⠋⣾")).toBe("{\n    false;\n    false;\n}");
+      expect(genCode("⡋⠆⡋")).toBe("false;\nfalse;");
+      expect(genCode("⣷⡋⠆⡋⣾")).toBe("{\n    false;\n    false;\n}");
     });
   });
 });
 
 it("ignore other char", () => {
-  expect(genCode("ほげ⠋ふんが⠆じゃー⠋ぜ")).toBe("false;\nfalse;");
+  expect(genCode("ほげ⡋ふんが⠆じゃー⡋ぜ")).toBe("false;\nfalse;");
 });
 
 describe("exec javascript", () => {

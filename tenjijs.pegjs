@@ -18,8 +18,8 @@ __ = IgnoreChara*
 /////////////////////////
 
 NullToken = [\u281D] // n ⠝ 
-TrueToken = [\u281E] // t ⠞
-FalseToken =[\u280B] // f ⠋
+TrueToken = [\u285E] // T ⡞
+FalseToken =[\u284B] // F ⡋
 
 Literal
   = NullLiteral
